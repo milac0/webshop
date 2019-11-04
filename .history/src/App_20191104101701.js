@@ -1,17 +1,18 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from './pages/Cart'
 import Product from './pages/Product'
 import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
-//mui
+
 
 function App() {
   return (
-      <Router>
+    <Fragment>
       <Navbar />
+      <Router>
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/product" component={Product} exact />
@@ -19,6 +20,9 @@ function App() {
         <Route component={NotFound} />
       </Switch>
     </Router>
+
+    </Fragment>
+
   );
 }
 
