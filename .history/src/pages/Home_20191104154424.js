@@ -17,6 +17,7 @@ const Home = () => {
       );
       setProducts(response.data.products);
       setTotalPages(response.data.totalPages);
+      console.log(response.data);
     };
 
     fetchData();
@@ -29,8 +30,8 @@ const Home = () => {
   };
 
   return (
-    <div style={{width: '95%', margin: '2em auto'}} >
-      <Grid container spacing={2}>
+    <div>
+      <Grid container spacing="3">
         {!products ? (
           <h5>Loading</h5>
         ) : (
@@ -43,8 +44,8 @@ const Home = () => {
           })
         )}
       </Grid>
-      
-      <Typography display="inline">{page}</Typography><Button onClick={handleClick}>next</Button>
+      <Typography>{page}</Typography>
+      <Button onClick={handleClick}>next page</Button>
     </div>
   );
 };

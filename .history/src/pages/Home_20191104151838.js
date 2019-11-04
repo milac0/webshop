@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [totalPages, setTotalPages] = useState(1);
   const [page, setPage] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
@@ -16,35 +15,33 @@ const Home = () => {
         `https://api.bestbuy.com/v1/products?apiKey=${process.env.REACT_APP_API_KEY}&format=json&page=${page}`
       );
       setProducts(response.data.products);
-      setTotalPages(response.data.totalPages);
+      console.log(response.data);
     };
 
     fetchData();
   }, [page]);
 
   const handleClick = () => {
-    if (page < totalPages) {
-      setPage(page + 1);
-    }
+    setPage(page + 1);
   };
 
   return (
-    <div style={{width: '95%', margin: '2em auto'}} >
-      <Grid container spacing={2}>
+    <div>
+      <Grid container spacing="3">
         {!products ? (
           <h5>Loading</h5>
         ) : (
           products.map((product, index) => {
             return (
-              <Grid item key={index}>
-                <Product product={product} />
+              <Grid item>
+                <Product key={index} product={product} />
               </Grid>
             );
           })
         )}
       </Grid>
-      
-      <Typography display="inline">{page}</Typography><Button onClick={handleClick}>next</Button>
+      <Typography>{page}</Typography>
+      <Button onClick={handleClick}>next page</Button>
     </div>
   );
 };

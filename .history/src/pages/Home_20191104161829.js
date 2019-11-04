@@ -43,8 +43,8 @@ const Home = () => {
           })
         )}
       </Grid>
-      
-      <Typography display="inline">{page}</Typography><Button onClick={handleClick}>next</Button>
+      <Typography>{page}</Typography>
+      <Button onClick={handleClick}>next page</Button>
     </div>
   );
 };

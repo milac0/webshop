@@ -32,6 +32,7 @@ const Product = props => {
   const { image, name, regularPrice, categoryPath } = props.product;
   const slicedName = name.length > 25 ? `${name.slice(0,25)}...` : name;
   const categoryPathName = categoryPath[2].name.length > 17 ? `${categoryPath[2].name.slice(0,17)}...` : categoryPath[2].name;
+  console.log(categoryPath)
   return (
     <Card className={classes.card}>
       <CardHeader title={slicedName} subheader={categoryPathName} />
@@ -41,7 +42,7 @@ const Product = props => {
           <Grid item xs={9}>
             <Typography
               variant="body2"
-              color="textPrimary"
+              color="textSecondary"
               component="p"
               className={classes.price}
             >

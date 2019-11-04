@@ -11,11 +11,8 @@ import AddIcon from "@material-ui/icons/Add";
 import { Tooltip } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  contentPrice: {
-    padding: 0
-  },
   card: {
-    width: 190
+    width: 210
   },
   media: {
     height: 0,
@@ -24,24 +21,23 @@ const useStyles = makeStyles(theme => ({
   price: {
     padding: 12,
     paddingLeft: 0
-  }
+  },
+  
 }));
 
 const Product = props => {
   const classes = useStyles();
   const { image, name, regularPrice, categoryPath } = props.product;
-  const slicedName = name.length > 25 ? `${name.slice(0,25)}...` : name;
-  const categoryPathName = categoryPath[2].name.length > 17 ? `${categoryPath[2].name.slice(0,17)}...` : categoryPath[2].name;
   return (
     <Card className={classes.card}>
-      <CardHeader title={slicedName} subheader={categoryPathName} />
+      <CardHeader title={`${name.slice(0,25)}...`} subheader={categoryPath[0].name} />
       <CardMedia className={classes.media} image={image} title={name} />
       <CardContent>
-        <Grid container justify="center" alignContent="center" className={classes.contentPrice}>
+        <Grid container justify="center" alignContent="center">
           <Grid item xs={9}>
             <Typography
               variant="body2"
-              color="textPrimary"
+              color="textSecondary"
               component="p"
               className={classes.price}
             >

@@ -44,7 +44,7 @@ const Home = () => {
         )}
       </Grid>
       
-      <Typography display="inline">{page}</Typography><Button onClick={handleClick}>next</Button>
+      <Button onClick={handleClick}>next page</Button><Typography display="inline">{page}</Typography>
     </div>
   );
 };

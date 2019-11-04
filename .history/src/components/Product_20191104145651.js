@@ -11,11 +11,8 @@ import AddIcon from "@material-ui/icons/Add";
 import { Tooltip } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  contentPrice: {
-    padding: 0
-  },
   card: {
-    width: 190
+    maxWidth: 345
   },
   media: {
     height: 0,
@@ -27,28 +24,32 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Product = props => {
+const Product = (props) => {
   const classes = useStyles();
-  const { image, name, regularPrice, categoryPath } = props.product;
-  const slicedName = name.length > 25 ? `${name.slice(0,25)}...` : name;
-  const categoryPathName = categoryPath[2].name.length > 17 ? `${categoryPath[2].name.slice(0,17)}...` : categoryPath[2].name;
+  const { image, name, regularPrice } = props
+
+  console.log(props)
   return (
     <Card className={classes.card}>
-      <CardHeader title={slicedName} subheader={categoryPathName} />
-      <CardMedia className={classes.media} image={image} title={name} />
+      <CardHeader title={name} subheader="category" />
+      <CardMedia
+        className={classes.media}
+        image={image}
+        title={name}
+      />
       <CardContent>
-        <Grid container justify="center" alignContent="center" className={classes.contentPrice}>
+        <Grid container justify="center" alignContent="center">
           <Grid item xs={9}>
             <Typography
               variant="body2"
-              color="textPrimary"
+              color="textSecondary"
               component="p"
               className={classes.price}
             >
               Price: {regularPrice}
             </Typography>
           </Grid>
-          <Grid item xs={3} align="right">
+          <Grid item xs={3}>
             <Tooltip title="Add to Cart">
               <IconButton aria-label="Add to Cart">
                 <AddIcon />

@@ -29,23 +29,23 @@ const Home = () => {
   };
 
   return (
-    <div style={{width: '95%', margin: '2em auto'}} >
+    <Fragment>
       <Grid container spacing={2}>
         {!products ? (
           <h5>Loading</h5>
         ) : (
           products.map((product, index) => {
             return (
-              <Grid item key={index}>
+              <Grid item key={index} xs={5}>
                 <Product product={product} />
               </Grid>
             );
           })
         )}
       </Grid>
-      
-      <Typography display="inline">{page}</Typography><Button onClick={handleClick}>next</Button>
-    </div>
+      <Typography>{page}</Typography>
+      <Button onClick={handleClick}>next page</Button>
+    </Fragment>
   );
 };
 

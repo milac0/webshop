@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     padding: 0
   },
   card: {
-    width: 190
+    width: 200
   },
   media: {
     height: 0,
@@ -30,18 +30,18 @@ const useStyles = makeStyles(theme => ({
 const Product = props => {
   const classes = useStyles();
   const { image, name, regularPrice, categoryPath } = props.product;
-  const slicedName = name.length > 25 ? `${name.slice(0,25)}...` : name;
-  const categoryPathName = categoryPath[2].name.length > 17 ? `${categoryPath[2].name.slice(0,17)}...` : categoryPath[2].name;
+  const slicedName = name.length > 25 ? `${name.slice(0,20)}...` : name;
+  console.log(categoryPath)
   return (
     <Card className={classes.card}>
-      <CardHeader title={slicedName} subheader={categoryPathName} />
+      <CardHeader title={slicedName} subheader={categoryPath[2].name} />
       <CardMedia className={classes.media} image={image} title={name} />
       <CardContent>
         <Grid container justify="center" alignContent="center" className={classes.contentPrice}>
           <Grid item xs={9}>
             <Typography
               variant="body2"
-              color="textPrimary"
+              color="textSecondary"
               component="p"
               className={classes.price}
             >
