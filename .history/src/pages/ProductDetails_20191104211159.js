@@ -12,11 +12,10 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     maxWidth: 400,
-    margin: '0 auto'
+    margn: '0 auto'
   },
   media: {
     maxWidth: 300,
-    margin: '0 auto',
     height: 0,
     paddingTop: '56.25%', // 16:9
   }

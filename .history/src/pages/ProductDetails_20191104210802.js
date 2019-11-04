@@ -3,22 +3,14 @@ import { useParams } from "react-router-dom";
 import { getProductDetails } from "../redux/actions/dataActions";
 import { connect } from "react-redux";
 //mui
-import CardMedia from '@material-ui/core/CardMedia';
+import Image from 'material-ui-image'
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
-    maxWidth: 400,
-    margin: '0 auto'
-  },
-  media: {
-    maxWidth: 300,
-    margin: '0 auto',
-    height: 0,
-    paddingTop: '56.25%', // 16:9
+    padding: theme.spacing(3, 2)
   }
 }));
 
@@ -30,16 +22,12 @@ const ProductDetails = props => {
   }, []);
   const classes = useStyles();
   const { name, plot, image } = props.product;
-  
+  console.log(`${image}/300/200`)
   return !props.product ? (
     <h3>Loading</h3>
   ) : (
     <Paper className={classes.root}>
-      <CardMedia
-        className={classes.media}
-        image={image}
-        title="Product"
-      />
+      <Image src={`${image}/300/200`} alt="product" />
       <Typography variant="h5" component="h3">
         {name}
       </Typography>

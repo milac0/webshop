@@ -10,13 +10,10 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
-    maxWidth: 400,
-    margin: '0 auto'
+    padding: theme.spacing(3, 2)
   },
   media: {
     maxWidth: 300,
-    margin: '0 auto',
     height: 0,
     paddingTop: '56.25%', // 16:9
   }
