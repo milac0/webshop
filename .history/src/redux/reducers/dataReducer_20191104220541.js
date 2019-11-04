@@ -30,18 +30,13 @@ export default function(state = initialState, action) {
         product
       };
     case ADD_PRODUCT:
-      const index = state.cart.findIndex(
-        product => {
-          return product.sku === action.payload.sku
-        }
-      );
-      if (index !== -1) {
-        state.cart[index].count++; 
-        return {
-          ...state
-        };
-      }
-      return { ...state, cart: [...state.cart, {...action.payload, count: 1}]};
+      return state.cart.includes(action.payload)
+        ? {
+            ...state,
+            cart: [...state.cart, { ...action.payload, count: 2 }]
+          }
+        : { ...state, cart: [...state.cart, { ...action.payload, count: 1 }] };
+
     default:
       return state;
   }

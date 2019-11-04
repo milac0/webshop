@@ -17,6 +17,6 @@ export const getProductDetails = skuId => dispatch => {
     dispatch({ type: GET_PRODUCT_DETAILS, payload: skuId})
 }
 
-export const addProduct = product => dispatch => {
-    dispatch({ type: ADD_PRODUCT, payload: product})
+export const addProduct = skuId => dispatch => {
+    dispatch({ type: ADD_PRODUCT, payload: skuId})
 }

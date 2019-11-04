@@ -53,7 +53,7 @@ const Product = props => {
           </Typography>
         </CardContent>
       </Link>
-      <AddToCart product={props.product}/>
+      <AddToCart />
     </Card>
   );
 };

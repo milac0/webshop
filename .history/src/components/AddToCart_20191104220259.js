@@ -24,7 +24,7 @@ const AddToCart = ({ product, addProduct }) => {
     }
 
     return (
-        <Button className={classes.root} onClick={() => handleClick(product)}>
+        <Button className={classes.root} onClick={handleClick(product)}>
           <ShoppingCartIcon /> ADD TO CART
         </Button>
     );

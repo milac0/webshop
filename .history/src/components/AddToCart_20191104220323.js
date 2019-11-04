@@ -17,14 +17,14 @@ const useStyles = makeStyles({
     },
   });
 
-const AddToCart = ({ product, addProduct }) => {
+const AddToCart = ({ product = {}, addProduct }) => {
     const classes = useStyles();
     const handleClick = product => {
         addProduct(product)
     }
 
     return (
-        <Button className={classes.root} onClick={() => handleClick(product)}>
+        <Button className={classes.root} onClick={handleClick(product)}>
           <ShoppingCartIcon /> ADD TO CART
         </Button>
     );

@@ -30,6 +30,7 @@ export default function(state = initialState, action) {
         product
       };
     case ADD_PRODUCT:
+      console.log(state.cart, "cart");
       const index = state.cart.findIndex(
         product => {
           return product.sku === action.payload.sku
