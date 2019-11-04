@@ -5,7 +5,7 @@ const Cart = ({ cart }) => {
 
     return (
         <div>
-            {cart.map(cart => <h1>{cart.name}{cart.count}</h1>)}
+            cart.map(cart => <h1>{cart.name}</h1>)
         </div>
     );
 };
