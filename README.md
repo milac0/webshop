@@ -1,68 +1,51 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#   My own webshop - Interview task (Advanced)
 
-## Available Scripts
+## Task description
 
-In the project directory, you can run:
+The goal of this task is to create a simple webshop application. The application has several screen which are listed and exaplained below.
 
-### `yarn start`
+### Category page
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Path: `/`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+On this screen users can browse through a list of available products. Products must  be fetched from BestBuy's API. The category page has a search input for filtering products by name. The category page container displays products with pagination with a fixed amount of items per page.
 
-### `yarn test`
+####    Best buys api
+You can register and get the free API key at (https://www.bestbuy.com/identity/newAccount)[https://www.bestbuy.com/identity/newAccount].
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The documentation can be found (here)[https://bestbuyapis.github.io/api-documentation/#overview].
 
-### `yarn build`
+Every product item in the category page, contains: 
+1. Name
+2. Category
+3. Price
+4. Image
+5. *Add to cart* button
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clicking on *Add to cart* adds the item to the cart and updates the cart item count in the navigation bar. Clicking the *Add to cart* button multiple times increases the quantity every time by 1.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Product detail page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Path: `/products/:productIdentifier`
 
-### `yarn eject`
+On the product detail page users are displayed full product details with additional information, like description, dimensions, customer review  and color.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Cart page
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Path: `/cart`
 
-## Learn More
+Renders all items currently added to the cart. Support function for increasing and decrasing item count and completely removing items from cart.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Cart item component display is up to you.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Cart item should have a checkout button which display an alert when clicked and clears the current cart.
 
-### Code Splitting
+Cart information should be persisted when the browser reloads.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+## Libraries
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+You can use any library you want for the solving of the task regarding UI (ex. MaterialUI), routing (ex. React-Router) and data fetching (ex. fetch, axios ), storing (redux, context, localStorage).
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
