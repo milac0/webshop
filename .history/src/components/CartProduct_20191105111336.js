@@ -14,9 +14,6 @@ import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles(theme => ({
     card: {
-        width: '90%',
-        maxWidth: 420,
-        margin: '1em auto',
       display: 'flex',
     },
     details: {
@@ -25,19 +22,19 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
       flex: '1 0 auto',
-      '& h5': {
-          fontSize: '1rem'
-      }
     },
     cover: {
-      width: '15em',
-      objectFit: 'cover'
+      width: 151,
     },
     controls: {
       display: 'flex',
       alignItems: 'center',
       paddingLeft: theme.spacing(1),
       paddingBottom: theme.spacing(1),
+    },
+    playIcon: {
+      height: 38,
+      width: 38,
     },
   }));
 
@@ -51,7 +48,7 @@ const CartProduct = ({ name, image, price, count }) => {
             {name}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            {price}$
+            Mac Miller
           </Typography>
         </CardContent>
         <div className={classes.controls}>

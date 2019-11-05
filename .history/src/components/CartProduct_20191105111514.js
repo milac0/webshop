@@ -14,9 +14,6 @@ import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles(theme => ({
     card: {
-        width: '90%',
-        maxWidth: 420,
-        margin: '1em auto',
       display: 'flex',
     },
     details: {
@@ -24,20 +21,20 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'column',
     },
     content: {
-      flex: '1 0 auto',
-      '& h5': {
-          fontSize: '1rem'
-      }
+      flex: '1 0 1',
     },
     cover: {
-      width: '15em',
-      objectFit: 'cover'
+      width: 151,
     },
     controls: {
       display: 'flex',
       alignItems: 'center',
       paddingLeft: theme.spacing(1),
       paddingBottom: theme.spacing(1),
+    },
+    playIcon: {
+      height: 38,
+      width: 38,
     },
   }));
 

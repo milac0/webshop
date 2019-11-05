@@ -7,8 +7,8 @@ const Cart = ({ cart }) => {
     return (
         <div>
             {cart.map((product, i) => {
-                const { name, image, regularPrice, count } = product
-            return <CartProduct key={i} name={name} image={image} price={regularPrice} count={count}/>})}
+                const { name, thumbnail, regularPrice, count } = product
+            return <CartProduct key={i} name={name} thumbnail={thumbnail} price={regularPrice} count={count}/>})}
         </div>
     );
 };

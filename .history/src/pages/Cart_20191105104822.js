@@ -6,9 +6,8 @@ import CartProduct from '../components/CartProduct';
 const Cart = ({ cart }) => {
     return (
         <div>
-            {cart.map((product, i) => {
-                const { name, image, regularPrice, count } = product
-            return <CartProduct key={i} name={name} image={image} price={regularPrice} count={count}/>})}
+            {cart.map((cart, i) => <h1 key={i}>{cart.name}{cart.count}</h1>)}
+            <CartProduct />
         </div>
     );
 };

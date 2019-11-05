@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     card: {
         width: '90%',
         maxWidth: 420,
-        margin: '1em auto',
+        margin: '0 auto',
       display: 'flex',
     },
     details: {
@@ -38,6 +38,10 @@ const useStyles = makeStyles(theme => ({
       alignItems: 'center',
       paddingLeft: theme.spacing(1),
       paddingBottom: theme.spacing(1),
+    },
+    playIcon: {
+      height: 38,
+      width: 38,
     },
   }));
 
