@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { addProduct } from "../redux/actions/dataActions";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 //mui
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -22,6 +22,12 @@ const useStyles = makeStyles({
     color: "white",
     padding: "0.75em 2em",
     width: "100%"
+  },
+  link: {
+    textDecoration: 'none',
+    '&:focus, &:hover, &:visited, &:link, &:active': {
+      textDecoration: 'none'
+  }
   }
 });
 
@@ -45,9 +51,11 @@ const AddToCart = ({ product, addProduct }) => {
       <Dialog onClose={handleClose} aria-labelledby="added-to-cart" open={open}>
         <DialogTitle>Added to cart</DialogTitle>
         <List>
+
           <ListItem autoFocus button component={Link} to="/cart">
             <ListItemText primary="Go to Cart" />
           </ListItem>
+
           <ListItem autoFocus button onClick={handleClose}>
             <ListItemText primary="Continue shopping" />
           </ListItem>
