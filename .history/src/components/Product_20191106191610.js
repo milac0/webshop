@@ -30,13 +30,9 @@ const useStyles = makeStyles(() => ({
       textDecoration: 'none'
     }
   },
-  header: {
-    color: 'black',
-    fontSize: 16
-  },
   subheader: {
-    color: 'grey',
-    fontSize: 12
+    textDecoration: 'none',
+    fontSize: 10
   }
 }));
 

@@ -29,14 +29,6 @@ const useStyles = makeStyles(() => ({
     '&:focus, &:hover, &:visited, &:link, &:active': {
       textDecoration: 'none'
     }
-  },
-  header: {
-    color: 'black',
-    fontSize: 16
-  },
-  subheader: {
-    color: 'grey',
-    fontSize: 12
   }
 }));
 
@@ -51,8 +43,7 @@ const Product = props => {
   return (
     <Card className={classes.card}>
       <Link to={`/product/${name}/${sku}`} className={classes.link}>
-        <Typography className={classes.header}>{slicedName}</Typography>
-        <Typography className={classes.subheader}>{categoryPathName}</Typography>
+        <CardHeader disableTypography title={slicedName} subheader={categoryPathName} />
         <CardMedia className={classes.media} image={image} title={name} />
         <CardContent>
           <Typography

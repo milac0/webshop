@@ -30,13 +30,8 @@ const useStyles = makeStyles(() => ({
       textDecoration: 'none'
     }
   },
-  header: {
-    color: 'black',
-    fontSize: 16
-  },
   subheader: {
-    color: 'grey',
-    fontSize: 12
+    fontSize: 10
   }
 }));
 
@@ -51,6 +46,10 @@ const Product = props => {
   return (
     <Card className={classes.card}>
       <Link to={`/product/${name}/${sku}`} className={classes.link}>
+        {/* <CardHeader 
+        disableTypography 
+        title={slicedName} 
+        subheader={<Typography className={classes.subheader}>{categoryPathName}</Typography>} /> */}
         <Typography className={classes.header}>{slicedName}</Typography>
         <Typography className={classes.subheader}>{categoryPathName}</Typography>
         <CardMedia className={classes.media} image={image} title={name} />

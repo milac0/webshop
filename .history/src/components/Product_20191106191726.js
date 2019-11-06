@@ -31,12 +31,12 @@ const useStyles = makeStyles(() => ({
     }
   },
   header: {
-    color: 'black',
+    color: 'var(--primaryBlue)',
     fontSize: 16
   },
   subheader: {
     color: 'grey',
-    fontSize: 12
+    fontSize: 10
   }
 }));
 
