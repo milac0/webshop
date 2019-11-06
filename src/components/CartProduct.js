@@ -49,9 +49,14 @@ const CartProduct = props => {
   }
 
   const handleSubtract = () => {
-    if(count > 0) {
-      setCount(count - 1)
+    if(count > 1) {
+    setCount(count - 1)
     props.removeProduct(props.product)
+    } else {
+          props.removeProduct(props.product)
+      const cartString = localStorage.getItem('cart')
+      const cart = JSON.parse(cartString)
+      props.updateCart(cart)
     }
   }
 
@@ -67,7 +72,8 @@ const CartProduct = props => {
           </Typography>
         </CardContent>
         <div className={classes.controls}>
-          <IconButton aria-label="remove" onClick={handleSubtract}>
+          <IconButton aria-label="remove"
+          onClick={handleSubtract}>
             <RemoveIcon />
           </IconButton>
           {count}

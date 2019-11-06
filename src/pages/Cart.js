@@ -11,6 +11,11 @@ const Cart = () => {
       setCart([])
     }
   }, [])
+
+  const updateCart = cart => {
+    setCart(cart)
+  }
+  
   return (
     <div>
       {cart.map((product, i) => {
@@ -18,6 +23,7 @@ const Cart = () => {
           <CartProduct
             key={i}
             product={product}
+            updateCart={updateCart}
           />
         );
       })}
