@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, GET_PRODUCT_DETAILS, ADD_PRODUCT, REMOVE_PRODUCT, CLEAR_CART } from '../types'
+import { GET_PRODUCTS, GET_PRODUCT_DETAILS, ADD_PRODUCT, REMOVE_PRODUCT, CLEAR_CART, LOADING_DATA } from '../types'
 import axios from 'axios'
 
 export const getProducts = () => dispatch => {

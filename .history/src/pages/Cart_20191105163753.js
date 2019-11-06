@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
 import CartProduct from "../components/CartProduct";
 
-const Cart = () => {
-  const [cart, setCart] = useState([])
-  useEffect(() => {
-    try {
-      const cartString = localStorage.getItem('cart')
-      setCart(JSON.parse(cartString))
-    } catch {
-      setCart([])
-    }
-  }, [])
+const Cart = ({ cart }) => {
+
   return (
     <div>
       {cart.map((product, i) => {
@@ -29,4 +22,8 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+const mapStateToProps = state => ({
+  cart: state.cart
+});
+
+export default connect(mapStateToProps)(Cart);

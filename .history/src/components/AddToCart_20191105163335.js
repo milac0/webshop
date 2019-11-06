@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   root: {
     background: "var(--primaryBlue)",
     "&:hover": {
-      background: "var(--secondaryBlue)"
+      background: "#263aa0"
     },
     color: "white",
     padding: "0.75em 2em",

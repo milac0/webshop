@@ -48,7 +48,7 @@ const Product = props => {
         <CardContent>
           <Typography
             variant="body2"
-            color="textPrimary"
+            color="textSecondary"
             component="p"
             className={classes.price}
           >

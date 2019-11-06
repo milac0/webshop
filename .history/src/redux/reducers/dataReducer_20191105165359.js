@@ -35,6 +35,7 @@ export default function(state = initialState, action) {
       });
       if (index !== -1) {
         state.cart[index].count++;
+        localStorage.setItem('cart', JSON.stringify(state.cart))
         return {
           ...state
         };

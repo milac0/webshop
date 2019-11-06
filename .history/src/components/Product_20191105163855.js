@@ -23,12 +23,6 @@ const useStyles = makeStyles(() => ({
   price: {
     padding: 12,
     paddingLeft: 0
-  },
-  link: {
-    textDecoration: 'none',
-    '&:focus, &:hover, &:visited, &:link, &:active': {
-      textDecoration: 'none'
-    }
   }
 }));
 
@@ -42,7 +36,7 @@ const Product = props => {
       : categoryPath[2].name;
   return (
     <Card className={classes.card}>
-      <Link to={`/product/${name}/${sku}`} className={classes.link}>
+      <div component={Link} to={`/product/${name}/${sku}`}>
         <CardHeader title={slicedName} subheader={categoryPathName} />
         <CardMedia className={classes.media} image={image} title={name} />
         <CardContent>
@@ -55,7 +49,7 @@ const Product = props => {
             Price: {regularPrice}
           </Typography>
         </CardContent>
-      </Link>
+      </div>
       <AddToCart product={props.product}/>
     </Card>
   );

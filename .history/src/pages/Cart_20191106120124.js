@@ -5,7 +5,7 @@ const Cart = () => {
   const [cart, setCart] = useState([])
   useEffect(() => {
     try {
-      const cartString = localStorage.getItem('cart')
+      const cartString = localStorage.loadItem('cart')
       setCart(JSON.parse(cartString))
     } catch {
       setCart([])

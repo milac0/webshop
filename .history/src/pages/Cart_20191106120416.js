@@ -6,6 +6,7 @@ const Cart = () => {
   useEffect(() => {
     try {
       const cartString = localStorage.getItem('cart')
+      console.log(cartString)
       setCart(JSON.parse(cartString))
     } catch {
       setCart([])

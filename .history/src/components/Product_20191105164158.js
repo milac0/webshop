@@ -25,10 +25,7 @@ const useStyles = makeStyles(() => ({
     paddingLeft: 0
   },
   link: {
-    textDecoration: 'none',
-    '&:focus, &:hover, &:visited, &:link, &:active': {
-      textDecoration: 'none'
-    }
+    textDecoration: "none"
   }
 }));
 
