@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { addProduct, removeProduct } from "../redux/actions/dataActions";
 //mui
@@ -53,11 +53,17 @@ const CartProduct = props => {
   const handleSubtract = () => {
     if(count > 1) {
     setCount(count - 1)
-    } 
+    //make a func and replace walls of code
+    props.removeProduct(props.product)
+    const cartString = localStorage.getItem('cart')
+      const cart = JSON.parse(cartString)
+      props.updateCart(cart)
+    } else {
       props.removeProduct(props.product)
       const cartString = localStorage.getItem('cart')
       const cart = JSON.parse(cartString)
       props.updateCart(cart)
+    }
   }
 
   return (

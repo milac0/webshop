@@ -51,5 +51,5 @@ export const removeProduct = product => dispatch => {
 
 export const clearCart = () => dispatch => {
     dispatch({ type: CLEAR_CART})
-    localStorage.setItem('cart', '[]')
+    localStorage.setItem('cart', [])
 }

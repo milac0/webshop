@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { addProduct, removeProduct } from "../redux/actions/dataActions";
 //mui
@@ -45,19 +45,18 @@ const CartProduct = props => {
   const handleAdd = () => {
     setCount(count + 1)
     props.addProduct(props.product)
-    const cartString = localStorage.getItem('cart')
-      const cart = JSON.parse(cartString)
-      props.updateCart(cart)
   }
 
   const handleSubtract = () => {
     if(count > 1) {
     setCount(count - 1)
-    } 
+    props.removeProduct(props.product)
+    } else {
       props.removeProduct(props.product)
       const cartString = localStorage.getItem('cart')
       const cart = JSON.parse(cartString)
       props.updateCart(cart)
+    }
   }
 
   return (
@@ -88,7 +87,7 @@ const CartProduct = props => {
       <CardMedia
         className={classes.cover}
         image={image}
-        title="cart product"
+        title="Live from space album cover"
       />
     </Card>
   );

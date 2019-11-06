@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { addProduct, removeProduct } from "../redux/actions/dataActions";
 //mui
@@ -58,6 +58,7 @@ const CartProduct = props => {
       const cartString = localStorage.getItem('cart')
       const cart = JSON.parse(cartString)
       props.updateCart(cart)
+    }
   }
 
   return (

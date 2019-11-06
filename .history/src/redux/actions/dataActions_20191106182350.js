@@ -7,7 +7,6 @@ export const getProducts = () => dispatch => {
       ).then(
         res => {
             dispatch({ type: GET_PRODUCTS, payload: res.data})
-            localStorage.setItem('cart', '[]')
         }
     ).catch(err => {
         console.log(err)
@@ -51,5 +50,4 @@ export const removeProduct = product => dispatch => {
 
 export const clearCart = () => dispatch => {
     dispatch({ type: CLEAR_CART})
-    localStorage.setItem('cart', '[]')
 }

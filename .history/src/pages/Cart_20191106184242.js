@@ -26,7 +26,7 @@ const Cart = () => {
     try {
       setCart(getCartFromLocalStorage());
     } catch {
-      setCart('[]');
+      setCart([]);
     }
   }, []);
 

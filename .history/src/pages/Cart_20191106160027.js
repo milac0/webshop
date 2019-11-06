@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CartProduct from "../components/CartProduct";
-import { getCartFromLocalStorage } from './../util/funcs';
-//mui
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import CheckoutButton from "../components/CheckoutButton";
 
 const useStyles = makeStyles({
   root: {
@@ -12,7 +9,6 @@ const useStyles = makeStyles({
     margin: "0 auto"
   },
   checkout: {
-    padding: '1em',
     textAlign: "center"
   }
 });
@@ -24,9 +20,10 @@ const Cart = () => {
 
   useEffect(() => {
     try {
-      setCart(getCartFromLocalStorage());
+      const cartString = localStorage.getItem("cart");
+      setCart(JSON.parse(cartString));
     } catch {
-      setCart('[]');
+      setCart([]);
     }
   }, []);
 
@@ -36,10 +33,14 @@ const Cart = () => {
       cart.forEach(product => (sum += product.count * product.regularPrice));
       setTotal(sum);
     }
-  }, [cart]);
+  }, [total]);
 
   const updateCart = cart => {
-    setCart(cart);
+    setCart([...cart]);
+  };
+
+  const handleCheckout = () => {
+    //display an alert and clear the current cart
   };
 
   return (
@@ -50,8 +51,8 @@ const Cart = () => {
         );
       })}
       <div className={classes.checkout}>
-        <Typography>Total: {Math.round(total*100)/100}$</Typography>
-        <CheckoutButton updateCart={updateCart}/>
+        <Typography>Total: {total}$</Typography>
+        <Button onClick={handleCheckout}>Checkout</Button>
       </div>
     </div>
   );

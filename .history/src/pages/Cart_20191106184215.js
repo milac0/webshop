@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import CartProduct from "../components/CartProduct";
-import { getCartFromLocalStorage } from './../util/funcs';
 //mui
-import { Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CheckoutButton from "../components/CheckoutButton";
+import { getCartFromLocalStorage } from './../../.history/src/util/funcs_20191106184038';
+
 
 const useStyles = makeStyles({
   root: {
@@ -26,7 +27,7 @@ const Cart = () => {
     try {
       setCart(getCartFromLocalStorage());
     } catch {
-      setCart('[]');
+      setCart([]);
     }
   }, []);
 
