@@ -41,18 +41,8 @@ export default function(state = initialState, action) {
         ...state,
         cart: [...state.cart, { ...action.payload, count: 1 }]
       };
-    case REMOVE_PRODUCT:
-      const index2 = state.cart.findIndex(product => {
-        return product.sku === action.payload.sku;
-      });
-      if (index2 !== -1) {
-        if (state.cart[index2].count > 1) {
-          state.cart[index2].count--;
-        } else {
-          state.cart.splice(index2, 1);
-        }
-      }
-      return state;
+      case REMOVE_PRODUCT:
+        
     default:
       return state;
   }

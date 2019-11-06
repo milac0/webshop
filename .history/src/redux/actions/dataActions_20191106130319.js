@@ -35,15 +35,4 @@ export const addProduct = product => dispatch => {
 
 export const removeProduct = product => dispatch => {
     dispatch({ type: REMOVE_PRODUCT, payload: product})
-    const cartString = localStorage.getItem('cart')
-    const cart = JSON.parse(cartString)
-    const index = cart.findIndex(cartItem => cartItem.sku === product.sku)
-    if (index !== -1) {
-        if (cart[index].count > 1){
-            cart[index].count--;
-        } else {
-            cart.splice(index, 1)
-        }
-      }
-      localStorage.setItem('cart', JSON.stringify(cart))
 }

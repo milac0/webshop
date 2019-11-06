@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { addProduct, removeProduct } from "../redux/actions/dataActions";
+import { addProduct } from "../redux/actions/dataActions";
 //mui
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -39,21 +39,10 @@ const useStyles = makeStyles(() => ({
 }));
 
 const CartProduct = props => {
-  const { name, image, regularPrice: price } = props.product;
-  const [count, setCount ] = useState(props.product.count)
+  const { name, image, regularPrice: price, count } = props.product;
+  console.log(name, count)
+  useEffect(() => {}, [count]);
   const classes = useStyles();
-
-  const handleAdd = () => {
-    setCount(count + 1)
-    props.addProduct(props.product)
-  }
-
-  const handleSubtract = () => {
-    if(count > 0) {
-      setCount(count - 1)
-    props.removeProduct(props.product)
-    }
-  }
 
   return (
     <Card className={classes.card}>
@@ -67,13 +56,13 @@ const CartProduct = props => {
           </Typography>
         </CardContent>
         <div className={classes.controls}>
-          <IconButton aria-label="remove" onClick={handleSubtract}>
+          <IconButton aria-label="remove">
             <RemoveIcon />
           </IconButton>
           {count}
           <IconButton
             aria-label="add"
-            onClick={handleAdd}
+            onClick={() => props.addProduct(props.product)}
           >
             <AddIcon />
           </IconButton>
@@ -90,5 +79,5 @@ const CartProduct = props => {
 
 export default connect(
   null,
-  { addProduct, removeProduct }
+  { addProduct }
 )(CartProduct);
