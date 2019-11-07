@@ -13,6 +13,7 @@ const Home = (props) => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    console.log(props.products)
     props.getProducts(page);
     if(getCartFromLocalStorage() !== null ) {
       props.setCartOnLoad(getCartFromLocalStorage())
@@ -37,7 +38,7 @@ const Home = (props) => {
 
   return (
     <div style={{width: '95%', margin: '2em auto'}} >
-      <Grid container spacing={1}>
+      <Grid container spacing={3}>
         {props.products.length === 0 ? (
           <h5>Loading...</h5>
         ) : (

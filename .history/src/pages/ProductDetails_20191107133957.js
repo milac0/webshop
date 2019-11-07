@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from "../redux/actions/dataActions";
 import { connect } from "react-redux";
@@ -24,13 +24,24 @@ const useStyles = makeStyles(theme => ({
 
 const ProductDetails = props => {
   const { skuId } = useParams();
+  const [product, setProduct] = useState({})
+
   useEffect(() => {
     props.getProductDetails(skuId);
+    if(Object.entries(props.product).length === 0 && props.product.constructor === Object){
+      const productString = localStorage.getItem('product')
+      setProduct(JSON.parse(productString))
+      
+    }else {
+      setProduct(props.product)
+    console.log(props.product);
+    localStorage.setItem('product', JSON.stringify(props.product)) 
+    }
   }, []);
   const classes = useStyles();
-  const { name, plot, image } = props.product;
+  const { name, plot, image } = product;
   
-  return !props.product ? (
+  return !product ? (
     <h3>Loading</h3>
   ) : (
     <Paper className={classes.root}>

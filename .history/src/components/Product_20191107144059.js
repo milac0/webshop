@@ -9,17 +9,16 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
   card: {
-    width: 180,
-    padding: '0.5em'
+    width: 190,
   },
   media: {
     height: 0,
     paddingTop: "56.25%" // 16:9
   },
   price: {
-    textAlign: 'center',
-    padding: '1em 0',
-    fontSize: '1rem'
+    textAlign: 'left',
+    fontWeight: 500,
+    padding: '0.5em 0'
   },
   link: {
     textDecoration: 'none',
@@ -29,12 +28,11 @@ const useStyles = makeStyles(() => ({
   },
   header: {
     color: 'black',
-    fontSize: '1rem'
+    fontSize: 16
   },
   subheader: {
     color: 'grey',
-    fontSize: '0.75rem',
-    marginBottom: '1em'
+    fontSize: 12
   }
 }));
 
@@ -58,7 +56,7 @@ const Product = props => {
             component="p"
             className={classes.price}
           >
-            {regularPrice}$
+            Price: {regularPrice}
           </Typography>
       </Link>
       <AddToCart product={props.product}/>

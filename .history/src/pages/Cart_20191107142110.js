@@ -26,6 +26,7 @@ const Cart = (props) => {
 
   useEffect(() => {
     if(props.cart.length !== 0){
+      console.log('props.cart', props.cart)
       setCart(props.cart)
     } else if(getCartFromLocalStorage() !== null) {
         setCart(getCartFromLocalStorage());

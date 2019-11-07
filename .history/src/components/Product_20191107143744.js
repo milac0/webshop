@@ -5,21 +5,22 @@ import AddToCart from "./AddToCart";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
+import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
+  contentPrice: {
+    padding: 0
+  },
   card: {
-    width: 180,
-    padding: '0.5em'
+    width: 190,
   },
   media: {
     height: 0,
     paddingTop: "56.25%" // 16:9
   },
   price: {
-    textAlign: 'center',
-    padding: '1em 0',
-    fontSize: '1rem'
+    textAlign: 'center'
   },
   link: {
     textDecoration: 'none',
@@ -29,12 +30,11 @@ const useStyles = makeStyles(() => ({
   },
   header: {
     color: 'black',
-    fontSize: '1rem'
+    fontSize: 16
   },
   subheader: {
     color: 'grey',
-    fontSize: '0.75rem',
-    marginBottom: '1em'
+    fontSize: 12
   }
 }));
 
@@ -52,14 +52,16 @@ const Product = props => {
         <Typography className={classes.header}>{slicedName}</Typography>
         <Typography className={classes.subheader}>{categoryPathName}</Typography>
         <CardMedia className={classes.media} image={image} title={name} />
+        <CardContent>
           <Typography
             variant="body2"
             color="textPrimary"
             component="p"
             className={classes.price}
           >
-            {regularPrice}$
+            Price: {regularPrice}
           </Typography>
+        </CardContent>
       </Link>
       <AddToCart product={props.product}/>
     </Card>

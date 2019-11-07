@@ -46,6 +46,7 @@ const Product = props => {
     categoryPath[2].name.length > 27
       ? `${categoryPath[2].name.slice(0, 24)}...`
       : categoryPath[2].name;
+      console.log(prop.product)
   return (
     <Card className={classes.card}>
       <Link to={`/product/${name}/${sku}`} className={classes.link}>

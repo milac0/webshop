@@ -34,10 +34,10 @@ const ProductDetails = props => {
     <h3>Loading</h3>
   ) : (
     <Paper className={classes.root}>
-      <CardMedia
+      <img
         className={classes.media}
         image={image}
-        title="Product"
+        alt="Product"
       />
       <Typography variant="h5" component="h3">
         {name}

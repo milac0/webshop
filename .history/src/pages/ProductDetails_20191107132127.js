@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 const ProductDetails = props => {
   const { skuId } = useParams();
+  console.log(props.product);
   useEffect(() => {
     props.getProductDetails(skuId);
   }, []);

@@ -8,6 +8,8 @@ import { getCartFromLocalStorage } from './../util/funcs';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Pagination from "material-ui-flat-pagination";
+
 
 const Home = (props) => {
   const [page, setPage] = useState(1);
@@ -34,12 +36,12 @@ const Home = (props) => {
   //       props.setCartOnLoad(getCartFromLocalStorage())
   //     }
   // }
-
+    
   return (
     <div style={{width: '95%', margin: '2em auto'}} >
-      <Grid container spacing={1}>
-        {props.products.length === 0 ? (
-          <h5>Loading...</h5>
+      <Grid container spacing={3}>
+        {!props.products ? (
+          <h5>Loading</h5>
         ) : (
           props.products.map((product, index) => {
             return (
@@ -50,7 +52,12 @@ const Home = (props) => {
           })
         )}
       </Grid>
-
+      <Pagination
+          limit={10}
+          offset={1}
+          total={100}
+          onClick={(e, offset) => handleClick()}
+        />
       <Button onClick={() => handleClick(-1)}>previous</Button><Typography display="inline">{page}</Typography><Button onClick={() => handleClick(1)}>next</Button>
     </div>
   );

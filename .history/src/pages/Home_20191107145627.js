@@ -13,6 +13,7 @@ const Home = (props) => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    console.log(props.products)
     props.getProducts(page);
     if(getCartFromLocalStorage() !== null ) {
       props.setCartOnLoad(getCartFromLocalStorage())
@@ -34,12 +35,20 @@ const Home = (props) => {
   //       props.setCartOnLoad(getCartFromLocalStorage())
   //     }
   // }
+    
+  const isEmpty = obj => {
+    for(let key in obj) {
+        if(obj.hasOwnProperty(key)){
+            return false;
+    }
+    return true;
+}}
 
   return (
     <div style={{width: '95%', margin: '2em auto'}} >
-      <Grid container spacing={1}>
-        {props.products.length === 0 ? (
-          <h5>Loading...</h5>
+      <Grid container spacing={3}>
+        {isEmpty(props.products)? (
+          <h5>Loading</h5>
         ) : (
           props.products.map((product, index) => {
             return (

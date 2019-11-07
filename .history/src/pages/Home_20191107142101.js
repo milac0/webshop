@@ -34,12 +34,12 @@ const Home = (props) => {
   //       props.setCartOnLoad(getCartFromLocalStorage())
   //     }
   // }
-
+    
   return (
     <div style={{width: '95%', margin: '2em auto'}} >
-      <Grid container spacing={1}>
-        {props.products.length === 0 ? (
-          <h5>Loading...</h5>
+      <Grid container spacing={3}>
+        {!props.products ? (
+          <h5>Loading</h5>
         ) : (
           props.products.map((product, index) => {
             return (

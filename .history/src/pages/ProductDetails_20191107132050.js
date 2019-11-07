@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 const ProductDetails = props => {
   const { skuId } = useParams();
+  console.log(props.product);
   useEffect(() => {
     props.getProductDetails(skuId);
   }, []);
@@ -36,7 +37,7 @@ const ProductDetails = props => {
     <Paper className={classes.root}>
       <CardMedia
         className={classes.media}
-        image={image}
+        src={image}
         title="Product"
       />
       <Typography variant="h5" component="h3">

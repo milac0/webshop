@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductDetails } from "../redux/actions/dataActions";
 import { connect } from "react-redux";
@@ -24,8 +24,15 @@ const useStyles = makeStyles(theme => ({
 
 const ProductDetails = props => {
   const { skuId } = useParams();
+  const [product, setProduct] = useState({})
+  console.log(props.product);
   useEffect(() => {
     props.getProductDetails(skuId);
+    localStorage.setItem('product', JSON.stringify(props.product))
+    if(!props.product){
+      const productString = localStorage.getItem('product')
+      setProduct(JSON.parse(productString))
+    }
   }, []);
   const classes = useStyles();
   const { name, plot, image } = props.product;

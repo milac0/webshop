@@ -9,37 +9,27 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
+
 const Home = (props) => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    props.getProducts(page);
-    if(getCartFromLocalStorage() !== null ) {
-      props.setCartOnLoad(getCartFromLocalStorage())
-    }
+      handleClick()
   }, []);
 
-  const handleClick = (number) => {
-    setPage(page + number)
+  const handleClick = () => {
+    setPage(page + 1)
     props.getProducts(page);
       if(getCartFromLocalStorage() !== null ) {
         props.setCartOnLoad(getCartFromLocalStorage())
       }
   }
-
-  // const previousPage = () => {
-  //   setPage(page - 1)
-  //   props.getProducts(page);
-  //     if(getCartFromLocalStorage() !== null ) {
-  //       props.setCartOnLoad(getCartFromLocalStorage())
-  //     }
-  // }
-
+    
   return (
     <div style={{width: '95%', margin: '2em auto'}} >
-      <Grid container spacing={1}>
-        {props.products.length === 0 ? (
-          <h5>Loading...</h5>
+      <Grid container spacing={3}>
+        {!props.products ? (
+          <h5>Loading</h5>
         ) : (
           props.products.map((product, index) => {
             return (
@@ -50,8 +40,8 @@ const Home = (props) => {
           })
         )}
       </Grid>
-
-      <Button onClick={() => handleClick(-1)}>previous</Button><Typography display="inline">{page}</Typography><Button onClick={() => handleClick(1)}>next</Button>
+      
+      <Typography display="inline">{page-1}</Typography><Button onClick={handleClick}>next</Button>
     </div>
   );
 };

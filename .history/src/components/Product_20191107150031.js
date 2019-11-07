@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
   card: {
-    width: 180,
+    width: 190,
     padding: '0.5em'
   },
   media: {
