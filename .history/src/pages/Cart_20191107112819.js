@@ -25,12 +25,16 @@ const Cart = (props) => {
   const classes = useStyles(); 
 
   useEffect(() => {
-    if(props.cart.length !== 0){
-      console.log('props.cart', props.cart)
+    if(props.cart !== []){
       setCart(props.cart)
-    } else if(getCartFromLocalStorage() !== null) {
+    } else {
+      try {
         setCart(getCartFromLocalStorage());
+      } catch {       
+        localStorage.setItem('cart', '[]')
       }
+
+    }
   }, []);
 
   useEffect(() => {
@@ -41,20 +45,16 @@ const Cart = (props) => {
     }
   }, [cart]);
 
-  const updateCart = cart => {
-    setCart(cart)
-  }
-
   return (
     <div className={classes.root}>
       {cart.map((product, i) => {
         return (
-          <CartProduct key={i} product={product} updateCart={updateCart}/>
+          <CartProduct key={i} product={product}/>
         );
       })}
       <div className={classes.checkout}>
         <Typography>Total: {Math.round(total*100)/100}$</Typography>
-        <CheckoutButton updateCart={updateCart}/>
+        <CheckoutButton/>
       </div>
     </div>
   );

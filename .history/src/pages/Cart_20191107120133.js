@@ -29,8 +29,11 @@ const Cart = (props) => {
       console.log('props.cart', props.cart)
       setCart(props.cart)
     } else if(getCartFromLocalStorage() !== null) {
+        console.log(getCartFromLocalStorage(), 'cart from local storage')
         setCart(getCartFromLocalStorage());
       }
+    
+
   }, []);
 
   useEffect(() => {
@@ -41,20 +44,16 @@ const Cart = (props) => {
     }
   }, [cart]);
 
-  const updateCart = cart => {
-    setCart(cart)
-  }
-
   return (
     <div className={classes.root}>
       {cart.map((product, i) => {
         return (
-          <CartProduct key={i} product={product} updateCart={updateCart}/>
+          <CartProduct key={i} product={product}/>
         );
       })}
       <div className={classes.checkout}>
         <Typography>Total: {Math.round(total*100)/100}$</Typography>
-        <CheckoutButton updateCart={updateCart}/>
+        <CheckoutButton/>
       </div>
     </div>
   );

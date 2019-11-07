@@ -54,7 +54,7 @@ const Cart = (props) => {
       })}
       <div className={classes.checkout}>
         <Typography>Total: {Math.round(total*100)/100}$</Typography>
-        <CheckoutButton updateCart={updateCart}/>
+        <CheckoutButton/>
       </div>
     </div>
   );

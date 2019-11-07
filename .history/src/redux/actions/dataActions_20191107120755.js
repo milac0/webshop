@@ -33,6 +33,8 @@ export const addProduct = product => dispatch => {
   const cartString = localStorage.getItem("cart");
   if (cartString) {
     cart = JSON.parse(cartString);
+  } else {
+    cart = [];
   }
   const index = cart.findIndex(cartItem => cartItem.sku === product.sku);
   if (index !== -1) {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addProduct, removeProduct } from "../redux/actions/dataActions";
 //mui
@@ -38,10 +38,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 const CartProduct = props => {
-  const { name, image, regularPrice: price, count } = props.product;
+  const { name, image, regularPrice: price } = props.product;
+  const [count, setCount ] = useState(props.product.count)
   const classes = useStyles();
 
   const handleAdd = () => {
+    setCount(count + 1)
     props.addProduct(props.product)
     const cartString = localStorage.getItem('cart')
       const cart = JSON.parse(cartString)
@@ -49,6 +51,9 @@ const CartProduct = props => {
   }
 
   const handleSubtract = () => {
+    if(count > 1) {
+    setCount(count - 1)
+    } 
       props.removeProduct(props.product)
       const cartString = localStorage.getItem('cart')
       const cart = JSON.parse(cartString)

@@ -3,8 +3,7 @@ import {
   GET_PRODUCT_DETAILS,
   ADD_PRODUCT,
   REMOVE_PRODUCT,
-  CLEAR_CART,
-  SET_CART
+  CLEAR_CART
 } from "../types";
 import axios from "axios";
 
@@ -33,6 +32,8 @@ export const addProduct = product => dispatch => {
   const cartString = localStorage.getItem("cart");
   if (cartString) {
     cart = JSON.parse(cartString);
+  } else {
+    cart = [];
   }
   const index = cart.findIndex(cartItem => cartItem.sku === product.sku);
   if (index !== -1) {
@@ -58,10 +59,6 @@ export const removeProduct = product => dispatch => {
   }
   localStorage.setItem("cart", JSON.stringify(cart));
 };
-
-export const setCartOnLoad = cart => dispatch => {
-  dispatch({ type: SET_CART, payload: cart})
-}
 
 export const clearCart = () => dispatch => {
   dispatch({ type: CLEAR_CART });

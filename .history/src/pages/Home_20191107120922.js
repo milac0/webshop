@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import PropTypes from 'prop-types'
 import Product from "../components/Product";
 import { connect } from 'react-redux' 
@@ -15,6 +15,7 @@ const Home = (props) => {
 
   useEffect(() => {
       props.getProducts();
+      //moram ucitat cart iz locala ako ga ima
       if(getCartFromLocalStorage() !== null ) {
         props.setCartOnLoad(getCartFromLocalStorage())
       }
