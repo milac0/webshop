@@ -52,7 +52,7 @@ const Product = props => {
   const handleClick = () => {
     props.getProductDetails(props.product);
   };
-
+console.log(encodeURIComponent(`/product/${name}/${sku}`))
   return (
     <Card className={classes.card}>
       <Link

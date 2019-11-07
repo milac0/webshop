@@ -13,7 +13,7 @@ export const getProducts = page => dispatch => {
   const url =
     page === 1
       ? `https://api.bestbuy.com/v1/products?apiKey=${process.env.REACT_APP_API_KEY}&pageSize=12&format=json`
-      : `https://api.bestbuy.com/v1/products?apiKey=${process.env.REACT_APP_API_KEY}&pageSize=12&page=${page}&format=json`;
+      : `https://api.bestbuy.com/v1/products?apiKey=${process.env.REACT_APP_API_KEY}&pageSize=12&page=${page}format=json`;
   axios
     .get(url)
     .then(res => {

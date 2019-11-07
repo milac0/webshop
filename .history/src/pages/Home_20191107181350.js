@@ -20,15 +20,20 @@ const Home = props => {
   }, []);
 
   const handleClick = number => {
-    if(page === 1 && number === -1) {
-      return
-    }
     setPage(page + number);
     props.getProducts(page + number);
     if (getCartFromLocalStorage() !== null) {
       props.setCartOnLoad(getCartFromLocalStorage());
     }
   };
+
+  // const previousPage = () => {
+  //   setPage(page - 1)
+  //   props.getProducts(page);
+  //     if(getCartFromLocalStorage() !== null ) {
+  //       props.setCartOnLoad(getCartFromLocalStorage())
+  //     }
+  // }
 
   return (
     <div style={{ width: "95%", margin: "2em auto" }}>

@@ -56,7 +56,7 @@ const Product = props => {
   return (
     <Card className={classes.card}>
       <Link
-        to={(`/product/${encodeURIComponent(name)}/${sku}`)}
+        to={(`/product/${encodeURI(name)}/${sku}`)}
         className={classes.link}
         onClick={handleClick}
       >

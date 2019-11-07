@@ -30,6 +30,14 @@ const Home = props => {
     }
   };
 
+  // const previousPage = () => {
+  //   setPage(page - 1)
+  //   props.getProducts(page);
+  //     if(getCartFromLocalStorage() !== null ) {
+  //       props.setCartOnLoad(getCartFromLocalStorage())
+  //     }
+  // }
+
   return (
     <div style={{ width: "95%", margin: "2em auto" }}>
       <Grid container spacing={1}>
