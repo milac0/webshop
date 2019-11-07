@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import AddToCart from "./AddToCart";
 import { connect } from 'react-redux';
 import { getProductDetails } from '../redux/actions/dataActions'
@@ -41,6 +41,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Product = props => {
+  const { skuId } = useParams()
+  console.log(skuId)
   const classes = useStyles();
   const { image, name, regularPrice, categoryPath, sku } = props.product;
   const slicedName = name.length > 20 ? `${name.slice(0, 17)}...` : name;
@@ -50,12 +52,14 @@ const Product = props => {
       : categoryPath[2].name;
 
   const handleClick = () => {
-    props.getProductDetails(props.product);
+    props.getProductDetails(skuId);
   }
 
-   return (
+  // to={`/product/${name}/${sku}`}
+
+  return (
     <Card className={classes.card}>
-      <Link to={`/product/${name}/${sku}`} className={classes.link} onClick={handleClick}>
+      <Link className={classes.link} onClick={handleClick}>
         <Typography className={classes.header}>{slicedName}</Typography>
         <Typography className={classes.subheader}>{categoryPathName}</Typography>
         <CardMedia className={classes.media} image={image} title={name} />

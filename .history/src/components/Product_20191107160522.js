@@ -50,12 +50,12 @@ const Product = props => {
       : categoryPath[2].name;
 
   const handleClick = () => {
-    props.getProductDetails(props.product);
+    props.getProductDetails(sku);
   }
 
-   return (
+  return (
     <Card className={classes.card}>
-      <Link to={`/product/${name}/${sku}`} className={classes.link} onClick={handleClick}>
+      <Link className={classes.link} onClick={handleClick}>
         <Typography className={classes.header}>{slicedName}</Typography>
         <Typography className={classes.subheader}>{categoryPathName}</Typography>
         <CardMedia className={classes.media} image={image} title={name} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 //mui
 import CardMedia from '@material-ui/core/CardMedia';
@@ -21,33 +21,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ProductDetails = props => {
-  const isEmpty = obj => {
-    for(const prop in obj) {
-        if(obj.hasOwnProperty(prop))
-            return false;
-    }
-    return true;
-}
-
-  const [product, setProduct] = useState({})
   useEffect(() => {
-    if(!isEmpty(props.product)){
-      setProduct(props.product)
-    }
-    else {
-      try {
-        const productString = localStorage.getItem('product')
-        setProduct(JSON.parse(productString))
-      } catch {
-        setProduct({})
-      }
-    }
-  }, [])
+    
+  }, []);
   const classes = useStyles();
-  const { name, plot, image } = product;
+  const { name, plot, image } = props.product;
   console.log(props.product)
-
-  return (
+  return !props.product ? (
+    <h3>Loading</h3>
+  ) : (
     <Paper className={classes.root}>
       <CardMedia
         className={classes.media}

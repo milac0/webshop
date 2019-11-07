@@ -21,17 +21,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const ProductDetails = props => {
-  const isEmpty = obj => {
-    for(const prop in obj) {
-        if(obj.hasOwnProperty(prop))
-            return false;
-    }
-    return true;
-}
-
   const [product, setProduct] = useState({})
   useEffect(() => {
-    if(!isEmpty(props.product)){
+    if(props.product){
       setProduct(props.product)
     }
     else {
@@ -46,8 +38,10 @@ const ProductDetails = props => {
   const classes = useStyles();
   const { name, plot, image } = product;
   console.log(props.product)
-
-  return (
+  
+  return !props.product ? (
+    <h3>Loading</h3>
+  ) : (
     <Paper className={classes.root}>
       <CardMedia
         className={classes.media}

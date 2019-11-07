@@ -27,9 +27,9 @@ export const getProducts = (page) => dispatch => {
     });
 };
 
-export const getProductDetails = product => dispatch => {
-  dispatch({ type: GET_PRODUCT_DETAILS, payload: product });
-  localStorage.setItem('product', JSON.stringify(product))
+export const getProductDetails = skuId => dispatch => {
+  dispatch({ type: GET_PRODUCT_DETAILS, payload: skuId });
+  console.log(skuId, typeof skuId)
 };
 
 export const addProduct = product => dispatch => {

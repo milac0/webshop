@@ -29,7 +29,7 @@ export const getProducts = (page) => dispatch => {
 
 export const getProductDetails = product => dispatch => {
   dispatch({ type: GET_PRODUCT_DETAILS, payload: product });
-  localStorage.setItem('product', JSON.stringify(product))
+  console.log(product)
 };
 
 export const addProduct = product => dispatch => {

@@ -31,7 +31,7 @@ const ProductDetails = props => {
 
   const [product, setProduct] = useState({})
   useEffect(() => {
-    if(!isEmpty(props.product)){
+    if(isEmpty(props.product)){
       setProduct(props.product)
     }
     else {
@@ -47,7 +47,9 @@ const ProductDetails = props => {
   const { name, plot, image } = product;
   console.log(props.product)
 
-  return (
+  return !isEmpty(props.product) ? (
+    <h3>Loading</h3>
+  ) : (
     <Paper className={classes.root}>
       <CardMedia
         className={classes.media}

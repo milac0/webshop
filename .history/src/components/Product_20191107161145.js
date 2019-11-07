@@ -41,6 +41,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Product = props => {
+  console.log(sku)
   const classes = useStyles();
   const { image, name, regularPrice, categoryPath, sku } = props.product;
   const slicedName = name.length > 20 ? `${name.slice(0, 17)}...` : name;
@@ -50,12 +51,14 @@ const Product = props => {
       : categoryPath[2].name;
 
   const handleClick = () => {
-    props.getProductDetails(props.product);
+    props.getProductDetails(sku);
   }
 
-   return (
+  // to={`/product/${name}/${sku}`}
+
+  return (
     <Card className={classes.card}>
-      <Link to={`/product/${name}/${sku}`} className={classes.link} onClick={handleClick}>
+      <Link className={classes.link} onClick={handleClick}>
         <Typography className={classes.header}>{slicedName}</Typography>
         <Typography className={classes.subheader}>{categoryPathName}</Typography>
         <CardMedia className={classes.media} image={image} title={name} />
