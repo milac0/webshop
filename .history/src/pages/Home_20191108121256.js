@@ -5,39 +5,25 @@ import { connect } from "react-redux";
 import { getProducts, setCartOnLoad } from "../redux/actions/dataActions";
 import { getCartFromLocalStorage } from "./../util/funcs";
 //mui
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
   pagination: {
-    width: "20em",
-    margin: "0 auto",
-    marginTop: "2em"
-  },
-  flex: {
-    display: "flex",
-    alignItems: "baseline",
-    justifyContent: "space-between"
-  },
-  form: {
-    textAlign: "center"
-  },
-  input: {
-    width: "4em",
-    padding: "0.25em",
-    fontSize: "1rem",
-    fontFamily: "Roboto",
-    border: '0.5px solid #CDCDCD',
-    borderRadius: '5px',
-    marginRight: '0.25em'
+    width: '30%',
+    margin: '0 auto',
+    marginTop: '1em',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
-}));
+}))
 
 const Home = props => {
   const [page, setPage] = useState(1);
-  const classes = useStyles();
+  const classes = useStyles()
   useEffect(() => {
     props.getProducts(page);
     if (getCartFromLocalStorage() !== null) {
@@ -46,24 +32,13 @@ const Home = props => {
   }, []);
 
   const handleClick = number => {
-    if (page === 1 && number === -1 && page < props.totalPages) {
-      return;
+    if(page === 1 && number === -1) {
+      return
     }
     setPage(page + number);
     props.getProducts(page + number);
     if (getCartFromLocalStorage() !== null) {
       props.setCartOnLoad(getCartFromLocalStorage());
-    }
-  };
-
-  const handleInput = e => {
-    e.preventDefault();
-    props.getProducts(page);
-  };
-
-  const handleChange = e => {
-    if (!isNaN(e.target.value) && e.target.value >= 0) {
-      setPage(e.target.value);
     }
   };
 
@@ -82,22 +57,11 @@ const Home = props => {
           })
         )}
       </Grid>
+
       <div className={classes.pagination}>
-        <div className={classes.flex}>
-          <Button onClick={() => handleClick(-1)}>previous</Button>
-          <Typography>{`${page} of ${props.totalPages}`}</Typography>
-          <Button onClick={() => handleClick(1)}>next</Button>
-        </div>
-        <form onSubmit={handleInput} className={classes.form}>
-          <input
-            type="text"
-            name="pageNumber"
-            value={page}
-            onChange={handleChange}
-            className={classes.input}
-          />
-          <Button>Go</Button>
-        </form>
+      <Button onClick={() => handleClick(-1)}>previous</Button>
+      <Typography>{page}</Typography>
+      <Button onClick={() => handleClick(1)}>next</Button>
       </div>
     </div>
   );
@@ -108,8 +72,7 @@ Home.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  products: state.products,
-  totalPages: state.totalPages
+  products: state.products
 });
 
 export default connect(

@@ -85,10 +85,9 @@ const Home = props => {
       <div className={classes.pagination}>
         <div className={classes.flex}>
           <Button onClick={() => handleClick(-1)}>previous</Button>
+          <div>
           <Typography>{`${page} of ${props.totalPages}`}</Typography>
-          <Button onClick={() => handleClick(1)}>next</Button>
-        </div>
-        <form onSubmit={handleInput} className={classes.form}>
+          <form onSubmit={handleInput} className={classes.form}>
           <input
             type="text"
             name="pageNumber"
@@ -98,6 +97,10 @@ const Home = props => {
           />
           <Button>Go</Button>
         </form>
+          </div>
+          <Button onClick={() => handleClick(1)}>next</Button>
+        </div>
+        
       </div>
     </div>
   );

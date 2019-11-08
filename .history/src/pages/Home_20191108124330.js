@@ -28,10 +28,7 @@ const useStyles = makeStyles(() => ({
     width: "4em",
     padding: "0.25em",
     fontSize: "1rem",
-    fontFamily: "Roboto",
-    border: '0.5px solid #CDCDCD',
-    borderRadius: '5px',
-    marginRight: '0.25em'
+    fontFamily: "Roboto"
   }
 }));
 

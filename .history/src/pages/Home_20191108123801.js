@@ -5,39 +5,33 @@ import { connect } from "react-redux";
 import { getProducts, setCartOnLoad } from "../redux/actions/dataActions";
 import { getCartFromLocalStorage } from "./../util/funcs";
 //mui
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
   pagination: {
-    width: "20em",
-    margin: "0 auto",
-    marginTop: "2em"
+    width: '20em',
+    margin: '0 auto',
+    marginTop: '2em',
   },
   flex: {
-    display: "flex",
-    alignItems: "baseline",
-    justifyContent: "space-between"
+    display: 'flex',
+    alignItems: 'baseline',
+    justifyContent: 'space-between'
   },
   form: {
-    textAlign: "center"
+    textAlign: 'center'
   },
   input: {
-    width: "4em",
-    padding: "0.25em",
-    fontSize: "1rem",
-    fontFamily: "Roboto",
-    border: '0.5px solid #CDCDCD',
-    borderRadius: '5px',
-    marginRight: '0.25em'
+    width: '4em'
   }
-}));
+}))
 
 const Home = props => {
   const [page, setPage] = useState(1);
-  const classes = useStyles();
+  const classes = useStyles()
   useEffect(() => {
     props.getProducts(page);
     if (getCartFromLocalStorage() !== null) {
@@ -46,8 +40,8 @@ const Home = props => {
   }, []);
 
   const handleClick = number => {
-    if (page === 1 && number === -1 && page < props.totalPages) {
-      return;
+    if(page === 1 && number === -1 && page < props.totalPages) {
+      return
     }
     setPage(page + number);
     props.getProducts(page + number);
@@ -57,15 +51,15 @@ const Home = props => {
   };
 
   const handleInput = e => {
-    e.preventDefault();
-    props.getProducts(page);
-  };
+      e.preventDefault()
+      props.getProducts(page) 
+  }
 
   const handleChange = e => {
-    if (!isNaN(e.target.value) && e.target.value >= 0) {
-      setPage(e.target.value);
+    if(!isNaN(e.target.value)){
+      setPage(e.target.value)
     }
-  };
+  }
 
   return (
     <div style={{ width: "95%", margin: "2em auto" }}>
@@ -82,29 +76,25 @@ const Home = props => {
           })
         )}
       </Grid>
-      <div className={classes.pagination}>
-        <div className={classes.flex}>
-          <Button onClick={() => handleClick(-1)}>previous</Button>
-          <Typography>{`${page} of ${props.totalPages}`}</Typography>
-          <Button onClick={() => handleClick(1)}>next</Button>
-        </div>
-        <form onSubmit={handleInput} className={classes.form}>
-          <input
-            type="text"
-            name="pageNumber"
-            value={page}
-            onChange={handleChange}
-            className={classes.input}
-          />
-          <Button>Go</Button>
-        </form>
+<div className={classes.pagination}>
+<div className={classes.flex}>
+      <Button onClick={() => handleClick(-1)}>previous</Button>
+      <Typography>{`${page} of ${props.totalPages}`}</Typography>
+      <Button onClick={() => handleClick(1)}>next</Button>
       </div>
+      <form onSubmit={handleInput} className={classes.form}>
+      <input type="text" name="pageNumber" value={page} onChange={handleChange} className={classes.input}/>
+      <Button>Go</Button>
+      </form>
+</div>
+
+
     </div>
   );
 };
 
 Home.propTypes = {
-  products: PropTypes.array.isRequired
+  products: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({

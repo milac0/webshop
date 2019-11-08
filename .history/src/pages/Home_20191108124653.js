@@ -30,8 +30,7 @@ const useStyles = makeStyles(() => ({
     fontSize: "1rem",
     fontFamily: "Roboto",
     border: '0.5px solid #CDCDCD',
-    borderRadius: '5px',
-    marginRight: '0.25em'
+    borderRadius: '10px'
   }
 }));
 

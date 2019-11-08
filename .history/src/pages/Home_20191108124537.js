@@ -28,10 +28,7 @@ const useStyles = makeStyles(() => ({
     width: "4em",
     padding: "0.25em",
     fontSize: "1rem",
-    fontFamily: "Roboto",
-    border: '0.5px solid #CDCDCD',
-    borderRadius: '5px',
-    marginRight: '0.25em'
+    fontFamily: "Roboto"
   }
 }));
 
@@ -84,9 +81,9 @@ const Home = props => {
       </Grid>
       <div className={classes.pagination}>
         <div className={classes.flex}>
-          <Button onClick={() => handleClick(-1)}>previous</Button>
+          <Button variant="contained" onClick={() => handleClick(-1)}>previous</Button>
           <Typography>{`${page} of ${props.totalPages}`}</Typography>
-          <Button onClick={() => handleClick(1)}>next</Button>
+          <Button variant="contained" onClick={() => handleClick(1)}>next</Button>
         </div>
         <form onSubmit={handleInput} className={classes.form}>
           <input
@@ -96,7 +93,7 @@ const Home = props => {
             onChange={handleChange}
             className={classes.input}
           />
-          <Button>Go</Button>
+          <Button variant="contained">Go</Button>
         </form>
       </div>
     </div>
