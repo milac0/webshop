@@ -8,10 +8,9 @@ import {
 } from "../types";
 import axios from "axios";
 
-export const getProducts = (page, name) => dispatch => {
-  name = ''
-  const url = !!name ? `https://api.bestbuy.com/v1/products((search=${name}))?apiKey=${process.env.REACT_APP_API_KEY}&sort=name.asc&show=name&pageSize=12&page=${page}&format=json`
-  : `https://api.bestbuy.com/v1/products?apiKey=${process.env.REACT_APP_API_KEY}&pageSize=12&page=${page}&format=json`;
+export const getProducts = page => dispatch => {
+  const url =
+    page === `https://api.bestbuy.com/v1/products?apiKey=${process.env.REACT_APP_API_KEY}&pageSize=12&page=${page}&format=json`;
   axios
     .get(url)
     .then(res => {
