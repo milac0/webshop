@@ -9,9 +9,10 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
   root: {
-    margin: "1em auto",
+    margin: "1em 0",
     padding: "1em",
     maxWidth: 400,
+    margin: "0 auto"
   },
   media: {
     maxWidth: 300,
@@ -20,13 +21,13 @@ const useStyles = makeStyles(() => ({
     paddingTop: "56.25%" // 16:9
   },
   typo: {
-    marginBottom: "0.75em",
+    marginBottom: "0.5em",
     fontSize: "1rem"
   },
   review: {
     fontSize: "1rem",
     fontWeight: 500,
-    margin: '1.5em 0 2em 0'
+    margin: '2em 0'
   }
 }));
 

@@ -9,24 +9,24 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(() => ({
   root: {
-    margin: "1em auto",
+    margin: "1em 0",
     padding: "1em",
     maxWidth: 400,
+    margin: "0 auto"
   },
   media: {
     maxWidth: 300,
-    margin: "0.5em auto",
+    margin: "0 auto",
     height: 0,
     paddingTop: "56.25%" // 16:9
   },
   typo: {
-    marginBottom: "0.75em",
+    marginBottom: "0.5em",
     fontSize: "1rem"
   },
   review: {
     fontSize: "1rem",
-    fontWeight: 500,
-    margin: '1.5em 0 2em 0'
+    margin: '1em 0'
   }
 }));
 
@@ -75,26 +75,26 @@ const ProductDetails = props => {
         <h1>Loading</h1>
       )}
 
-      <Typography className={classes.typo} variant="h3">
+      <Typography className={classes.typo} variant="h3" component="h3">
         {department ? department : null}
       </Typography>
-      <Typography className={classes.typo} variant="h3">
-        {shortDescription ? `Description: ${shortDescription}` : null}
+      <Typography className={classes.typo} variant="h3" component="h3">
+        {shortDescription ? `Description ${shortDescription}` : null}
       </Typography>
-      <Typography className={classes.typo} variant="h3">
+      <Typography className={classes.typo} variant="h3" component="h3">
         {mpaaRating ? `MPAA rating: ${mpaaRating}` : null}
       </Typography>
-      <Typography className={classes.typo} variant="h3">
+      <Typography className={classes.typo} variant="h3" component="h3">
         Shipping weight: {shippingWeight}
       </Typography>
       <Typography className={classes.typo} component="p">
         {plot ? `Plot: ${plot}` : null}
       </Typography>
-      <Typography className={classes.review} variant="h3">
+      <Typography className={classes.review} variant="h3" component="h3">
         Customer review:{" "}
         {customerReviewAverage ? customerReviewAverage : "unrated"}/5
       </Typography>
-      <AddToCart product={product}/>
+      <AddToCart />
     </Card>
   );
 };

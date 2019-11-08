@@ -1,13 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getCartFromLocalStorage } from '../util/funcs'
 //mui
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
+import Badge from '@material-ui/core/Badge';
+
+const StyledBadge1 = withStyles(theme => ({
+  badge: {
+    right: 1,
+    top: 4,
+    border: `2px solid #e5e559`,
+    padding: '0 4px',
+    background: '#e5e559',
+    color: 'var(--primaryBlue)'
+  },
+}))(Badge);
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -91,6 +104,8 @@ const Navbar = () => {
             />
           </div>
           <div className={classes.grow} />
+          <StyledBadge1 
+          badgeContent={getCartFromLocalStorage() ? getCartFromLocalStorage().length : null}>
           <Button
             variant="contained"
             color="secondary"
@@ -99,6 +114,7 @@ const Navbar = () => {
           >
             Cart
           </Button>
+          </StyledBadge1>
         </Toolbar>
       </AppBar>
     </div>

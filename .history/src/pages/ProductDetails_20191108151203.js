@@ -1,32 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import AddToCart from "../components/AddToCart";
 //mui
 import CardMedia from "@material-ui/core/CardMedia";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    margin: "1em auto",
-    padding: "1em",
+    padding: theme.spacing(3, 2),
     maxWidth: 400,
+    margin: "0 auto"
   },
   media: {
     maxWidth: 300,
-    margin: "0.5em auto",
+    margin: "0 auto",
     height: 0,
     paddingTop: "56.25%" // 16:9
-  },
-  typo: {
-    marginBottom: "0.75em",
-    fontSize: "1rem"
-  },
-  review: {
-    fontSize: "1rem",
-    fontWeight: 500,
-    margin: '1.5em 0 2em 0'
   }
 }));
 
@@ -63,7 +53,7 @@ const ProductDetails = props => {
     shortDescription,
     mpaaRating
   } = product;
-
+  console.log(product);
   return (
     <Card className={classes.root}>
       <Typography variant="h5" component="h3">
@@ -75,26 +65,18 @@ const ProductDetails = props => {
         <h1>Loading</h1>
       )}
 
-      <Typography className={classes.typo} variant="h3">
-        {department ? department : null}
+      <Typography variant="h5" component="h3">
+        {department}
       </Typography>
-      <Typography className={classes.typo} variant="h3">
-        {shortDescription ? `Description: ${shortDescription}` : null}
-      </Typography>
-      <Typography className={classes.typo} variant="h3">
+      <Typography variant="h5" component="h3">
+        Description: {shortDescription && null}
         {mpaaRating ? `MPAA rating: ${mpaaRating}` : null}
-      </Typography>
-      <Typography className={classes.typo} variant="h3">
-        Shipping weight: {shippingWeight}
-      </Typography>
-      <Typography className={classes.typo} component="p">
-        {plot ? `Plot: ${plot}` : null}
-      </Typography>
-      <Typography className={classes.review} variant="h3">
+        Shipping weight: {shippingWeight && null}
         Customer review:{" "}
         {customerReviewAverage ? customerReviewAverage : "unrated"}/5
       </Typography>
-      <AddToCart product={product}/>
+
+      <Typography component="p">{plot}</Typography>
     </Card>
   );
 };

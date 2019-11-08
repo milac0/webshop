@@ -1,13 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 //mui
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { fade, makeStyles, withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
+import Badge from '@material-ui/core/Badge';
+
+const StyledBadge1 = withStyles(theme => ({
+  badge: {
+    right: 1,
+    border: `2px solid #98ea9c`,
+    padding: '0 4px',
+    background: '#98ea9c',
+    color: 'red'
+  },
+}))(Badge);
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -91,6 +102,7 @@ const Navbar = () => {
             />
           </div>
           <div className={classes.grow} />
+          <StyledBadge1 badgeContent={4}>
           <Button
             variant="contained"
             color="secondary"
@@ -99,6 +111,7 @@ const Navbar = () => {
           >
             Cart
           </Button>
+          </StyledBadge1>
         </Toolbar>
       </AppBar>
     </div>
